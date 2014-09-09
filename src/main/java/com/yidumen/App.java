@@ -8,6 +8,8 @@ import com.yidumen.datatransifer.Transfer;
 import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -32,8 +34,6 @@ public class App {
         transfer.transferBuddhist();
         transfer.transferAwakenJourney();
         transfer.transferHeartOfDharmaRealm();
-        
-//        testCasfade(transfer);
     }
 
     private static void testCasfade(Transfer transfer) {

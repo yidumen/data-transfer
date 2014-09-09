@@ -22,11 +22,13 @@ import java.util.ArrayList;
 import java.sql.Date;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.regex.Pattern;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -57,6 +59,7 @@ public class Transfer {
 
     private final Map<String, String> videos;
     private final Map<String, Integer> pagecount;
+    private final Pattern pattern = Pattern.compile("[１２３４５６７８９０]*");
     private final char[] numquerys = {'０', '１', '２', '３', '４', '５', '６', '７', '８', '９',};
     private int nodeValue;
 
@@ -136,7 +139,7 @@ public class Transfer {
             long sortNum = 0;
             String[] st = title.split("　");
             String num = st[st.length - 1];
-            if (numquerys.toString().contains(num)) {
+            if (pattern.matcher(num).matches()) {
                 char[] numchars = num.toCharArray();
                 StringBuilder viewValue = new StringBuilder("0");
                 for (char numchar : numchars) {
