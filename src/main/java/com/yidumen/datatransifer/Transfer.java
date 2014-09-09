@@ -284,7 +284,7 @@ public class Transfer {
                 default:
                     video.setStatus(VideoStatus.ARCHIVE);
             }
-            video.setPubDate(new java.sql.Date(oldVideo.getPubdate()));
+            video.setPubDate(new java.sql.Date(oldVideo.getCreatetime()));
             video.setChatroomVideo(true);
             videoDao.create(video);
             LOG.log(Level.INFO, "transfer video {0} {1}", new Object[]{oldVideo.getId(), oldVideo.getTitle()});
