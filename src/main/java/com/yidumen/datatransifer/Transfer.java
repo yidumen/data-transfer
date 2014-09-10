@@ -22,7 +22,6 @@ import java.util.ArrayList;
 import java.sql.Date;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -284,7 +283,7 @@ public class Transfer {
                 default:
                     video.setStatus(VideoStatus.ARCHIVE);
             }
-            video.setPubDate(new java.sql.Date(oldVideo.getCreatetime()));
+            video.setPubDate(new java.sql.Date(oldVideo.getUpdatetime()));
             video.setChatroomVideo(true);
             videoDao.create(video);
             LOG.log(Level.INFO, "transfer video {0} {1}", new Object[]{oldVideo.getId(), oldVideo.getTitle()});
